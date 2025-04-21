@@ -27,4 +27,4 @@ The script will:
 ## Output
 - Basic statistics including total number of IPs, suspicious IPs, and date range
 - A scatter plot showing IP locations on a world map, with suspicious IPs highlighted
-- ![alt text]()
+![alt text](https://github.com/ErokhinE/DWV_2/blob/main/vis.jpg)
