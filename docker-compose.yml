@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./server:/app/server
+      - ./frontend:/app/frontend
+    environment:
+      - FLASK_ENV=development
+      - FLASK_APP=server/app.py
+    command: python server/app.py
+    networks:
+      - app-network
+
+  sender:
+    build: .
+    volumes:
+      - ./sender:/app/sender
+      - ./ip_addresses.csv:/app/ip_addresses.csv
+    command: python sender/send_data.py
+    depends_on:
+      - web
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge 

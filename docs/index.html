@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Traffic Visualization</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Three.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Three.js OrbitControls -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Network Traffic Visualization</h1>
+        <div class="controls">
+            <button id="clear-btn">Clear Visualization</button>
+            <button id="random-btn">Generate Random Data</button>
+            <button id="toggle-rotation">Stop Rotation</button>
+            <button id="toggle-suspicious">Hide Suspicious</button>
+            <div class="slider-container">
+                <label for="fade-slider">Fade Time: <span id="fade-value">5</span>s</label>
+                <input type="range" id="fade-slider" min="1" max="30" value="5">
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div id="visualization" class="visualization"></div>
+        
+        <div class="sidebar">
+            <section class="stats">
+                <h2>Statistics</h2>
+                <ul>
+                    <li>Total Connections: <span id="stat-total">0</span></li>
+                    <li>Active Connections: <span id="stat-active">0</span></li>
+                    <li>Suspicious Connections: <span id="stat-suspicious">0</span></li>
+                    <li>Packets per Second: <span id="stat-packets">0</span></li>
+                </ul>
+            </section>
+            
+            <section class="notifications">
+                <h2>Notifications</h2>
+                <div id="notification-area"></div>
+            </section>
+            
+            <section class="legend">
+                <h2>Legend</h2>
+                <ul>
+                    <li class="legend-item normal"><span class="legend-color"></span> Normal Traffic</li>
+                    <li class="legend-item suspicious"><span class="legend-color"></span> Suspicious Traffic</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>Network Traffic Analysis Tool - v1.0</p>
+        <p>Static version for GitHub Pages deployment</p>
+    </footer>
+
+    <script src="visualization.js"></script>
+</body>
+</html>
